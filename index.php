@@ -1,6 +1,12 @@
 <!-- DATA -->
 <?php
-$paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni inventore soluta vero at! Ex fugit delectus voluptatum sapiente sequi? At aspernatur laudantium iusto iure mollitia porro corporis aliquam? Incidunt, corrupti?"
+// create var holding data
+$paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni inventore soluta vero at! Ex fugit delectus voluptatum sapiente sequi? At aspernatur laudantium iusto iure mollitia porro corporis aliquam? Incidunt, corrupti?";
+
+// check if badword par is set
+if(isset($_GET["badword"])){
+    $paragraph = str_replace($_GET["badword"], "***", $paragraph);
+}
 ?>
 
 <!-- HTML PAGE -->
@@ -18,6 +24,9 @@ $paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni in
     <h1>
         PHP - Badwords
     </h1>
+    <span>
+        Chars Count: <?php echo strlen($paragraph)?>
+    </span>
     <p>
         <?php
         echo $paragraph;
